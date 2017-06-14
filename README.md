@@ -1,19 +1,45 @@
 # ExEasyPost
 
-**TODO: Add description**
+EasyPost client library for Elixir.
+
+https://hexdocs.pm/ex_easypost
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ex_easypost` to your list of dependencies in `mix.exs`:
-
 ```elixir
 def deps do
-  [{:ex_easypost, "~> 0.1.0"}]
+  [
+    {:ex_easypost, "~> 0.1"},
+    {:httpoison, "~> 0.11"},
+    {:poison, "~> 2.2 or ~> 3.0"}
+  ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ex_easypost](https://hexdocs.pm/ex_easypost).
+## Usage
 
+```elixir
+ExEasyPost.Address.get("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9b")
+|> ExEasyPost.request
+```
+
+## Supported Endpoints
+
+[x] Addresses
+[ ] Parcels
+[ ] Insurances
+[ ] Shipments
+[ ] Trackers
+[ ] Batches
+[ ] CustomsInfos
+[ ] CustomsItems
+[ ] Orders
+[ ] Pickups
+[ ] Reports
+[ ] ScanForms
+[ ] Webhooks
+[ ] API Keys
+[ ] Users
+[ ] Child Users
+[ ] CarrierTypes
+[ ] CarrierAccounts

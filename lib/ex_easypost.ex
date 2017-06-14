@@ -1,18 +1,10 @@
 defmodule ExEasyPost do
-  @moduledoc """
-  Documentation for ExEasyPost.
-  """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> ExEasyPost.hello
-      :world
-
+  Performs an API request.
   """
-  def hello do
-    :world
+  @spec request(ExEasyPost.Operation.t, []) :: {:ok, term} | {:error, term}
+  def request(operation, config \\ []) do
+    ExEasyPost.Operation.perform(operation, ExEasyPost.Config.new(config))
   end
 end
