@@ -1,13 +1,18 @@
 defmodule ExEasyPost.Mixfile do
   use Mix.Project
 
+  @version "0.1.0"
+
   def project do
     [app: :ex_easypost,
-     version: "0.1.0",
+     name: "ExEasyPost",
+     version: @version,
      elixir: "~> 1.4",
+     elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     package: package()]
   end
 
   # Configuration for the OTP application
@@ -28,6 +33,23 @@ defmodule ExEasyPost.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:httpoison, "~> 0.11.0"}
+    ]
+  end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_),     do: ["lib"]
+
+  defp package do
+    [
+      description: "EasyPost client",
+      files: ["lib", "config", "mix.exs", "README*"],
+      maintainers: ["Anthony Smith"],
+      licenses: ["MIT"],
+      links: %{
+        GitHub: "https://github.com/sticksnleaves/ex_easypost"
+      }
+    ]
   end
 end
