@@ -12,7 +12,13 @@ defmodule ExEasyPost.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps(),
-     package: package()]
+     package: package(),
+     preferred_cli_env: [
+       "coveralls": :test,
+       "coveralls.html": :test,
+       "coveralls.travis": :test
+     ],
+     test_coverage: [tool: ExCoveralls]]
   end
 
   # Configuration for the OTP application
@@ -37,7 +43,9 @@ defmodule ExEasyPost.Mixfile do
       {:httpoison, "~> 0.11.0", optional: true},
       {:poison, "~> 2.2 or ~> 3.0", optional: true},
       # dev
-      {:ex_doc, ">= 0.0.0", only: :dev}
+      {:ex_doc, ">= 0.0.0", only: :dev},
+      # test
+      {:excoveralls, "~> 0.7", only: :test}
     ]
   end
 
