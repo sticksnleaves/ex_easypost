@@ -8,7 +8,7 @@ https://hexdocs.pm/ex_easypost
 
 ```elixir
 def deps do
-  - [
+  [
     {:ex_easypost, "~> 0.1"},
     {:httpoison, "~> 0.11"},
     {:poison, "~> 2.2 or ~> 3.0"}
