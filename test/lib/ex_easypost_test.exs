@@ -6,6 +6,10 @@ defmodule ExEasyPostTest do
   setup do
     bypass = Bypass.open(port: 5555)
 
+    on_exit(fn ->
+      Bypass.down(bypass)
+    end)
+
     %{bypass: bypass}
   end
 
