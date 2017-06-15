@@ -34,6 +34,13 @@ ExEasyPost.Address.get("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9b") |> ExEasyPost.req
 #> {:ok, response}
 ```
 
+You can also provide an application wide config.
+
+```elixir
+# config.exs
+config :ex_easypost, api_key: {:system, "EASYPOST_API_KEY"}
+```
+
 ## Supported Endpoints
 
 - [x] Addresses
