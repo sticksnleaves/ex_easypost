@@ -1,6 +1,9 @@
 # The directory Mix will write compiled artifacts to.
 /_build
 
+# Ignore hex builds
+*.tar
+
 # If you run "mix test --cover", coverage assets end up here.
 /cover
 
@@ -19,5 +22,5 @@ erl_crash.dump
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
 
-$ Ignore macOS directory config
+# Ignore macOS directory config
 .DS_Store
