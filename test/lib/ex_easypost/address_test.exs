@@ -12,10 +12,10 @@ defmodule ExEasyPost.AddressTest do
 
   describe "find/2" do
     test "builds an operation" do
-      address_id = "foo"
+      id = "foo"
 
       assert %ExEasyPost.Operation{http_method: :get, path: "addresses/foo"}
-        = ExEasyPost.Address.find(address_id)
+        = ExEasyPost.Address.find(id)
     end
   end
 end

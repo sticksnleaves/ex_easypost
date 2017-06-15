@@ -12,10 +12,10 @@ defmodule ExEasyPost.ParcelTest do
 
   describe "find/2" do
     test "builds an operation" do
-      address_id = "foo"
+      id = "foo"
 
       assert %ExEasyPost.Operation{http_method: :get, path: "parcels/foo"}
-        = ExEasyPost.Parcel.find(address_id)
+        = ExEasyPost.Parcel.find(id)
     end
   end
 end

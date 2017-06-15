@@ -12,10 +12,10 @@ defmodule ExEasyPost.InsuranceTest do
 
   describe "find/2" do
     test "builds an operation" do
-      insurance_id = "foo"
+      id = "foo"
 
       assert %ExEasyPost.Operation{http_method: :get, path: "insurances/foo"}
-        = ExEasyPost.Insurance.find(insurance_id)
+        = ExEasyPost.Insurance.find(id)
     end
   end
 
