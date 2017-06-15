@@ -19,6 +19,9 @@ defmodule ExEasyPost.Client do
   # private
 
   defp build_headers(headers, config) do
-    headers ++ [{"Authorization", "Bearer #{config[:api_key]}"}]
+    headers ++ [
+      {"Content-Type", "application/json"},
+      {"Authorization", "Bearer #{config[:api_key]}"}
+    ]
   end
 end
