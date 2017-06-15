@@ -18,9 +18,20 @@ end
 
 ## Usage
 
+ExEasyPost takes a data driven approach to making API requests. Each function
+meant to perform an API action will generate a struct which can then be used
+to perform a particular operation.
+
 ```elixir
-ExEasyPost.Address.get("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9b")
-|> ExEasyPost.request
+ExEasyPost.Address.get("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9b") |> ExEasyPost.request
+#> {:ok, response}
+```
+
+You can also pass client configuration per request.
+
+```elixir
+ExEasyPost.Address.get("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9b") |> ExEasyPost.request(api_key: "xxxx")
+#> {:ok, response}
 ```
 
 ## Supported Endpoints
