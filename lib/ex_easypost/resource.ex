@@ -19,6 +19,13 @@ defmodule ExEasyPost.Resource do
         end
       end
 
+      if :list in import_functions do
+        @spec list(map) :: {:ok, term} | {:error, term}
+        def list(params \\ %{}) do
+          request(:get, list_url(), params)
+        end
+      end
+
       defp request(http_method, path, params \\ %{}) do
         ExEasyPost.Operation.new(%{
           http_method: http_method,
