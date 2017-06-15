@@ -5,7 +5,6 @@ defmodule ExEasyPost.Mixfile do
 
   def project do
     [app: :ex_easypost,
-     name: "ExEasyPost",
      version: @version,
      elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
@@ -55,7 +54,7 @@ defmodule ExEasyPost.Mixfile do
 
   defp package do
     [
-      description: "EasyPost client",
+      description: "Elixir client for the EasyPost API",
       files: ["lib", "config", "mix.exs", "README*"],
       maintainers: ["Anthony Smith"],
       licenses: ["MIT"],
