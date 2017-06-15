@@ -4,7 +4,7 @@ defmodule ExEasyPostTest do
   @operation %ExEasyPost.Operation{http_method: :get, path: "foo"}
 
   setup do
-    bypass = Bypass.open(port: 12345)
+    bypass = Bypass.open(port: 5555)
 
     %{bypass: bypass}
   end
