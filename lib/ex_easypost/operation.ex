@@ -1,10 +1,15 @@
 defmodule ExEasyPost.Operation do
-  defstruct [:headers, :http_method, :params, :path]
+  defstruct [
+    headers: [],
+    http_method: nil,
+    params: %{},
+    path: nil
+  ]
 
   @type t :: %__MODULE__{}
 
   def new(config) do
-    struct(%__MODULE__{headers: []}, config)
+    struct(%__MODULE__{}, config)
   end
 
   def perform(operation, config) do
@@ -25,7 +30,7 @@ defmodule ExEasyPost.Operation do
 
     url =
       cond do
-        port -> "url:#{port}"
+        port -> "#{url}:#{port}"
         true -> url
       end
 
@@ -40,5 +45,5 @@ defmodule ExEasyPost.Operation do
 
   defp parse({:error, result}, _config), do: {:error, result}
   defp parse({:ok, %{body: ""}}, _config), do: %{}
-  defp parse({:ok, %{body: body}}, config), do: config[:json_parser].decode
+  defp parse({:ok, %{body: body}}, config), do: config[:json_parser].decode(body)
 end
