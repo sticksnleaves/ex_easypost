@@ -29,7 +29,7 @@ ExEasyPost.Address.get("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9b")
 - [x] Parcels
 - [x] Insurances
 - [x] Shipments
-- [ ] Trackers
+- [x] Trackers
 - [ ] Batches
 - [ ] CustomsInfos
 - [ ] CustomsItems
