@@ -1,8 +1,4 @@
 defmodule ExEasyPost.Address do
-  @moduledoc """
-  Represents people, places and organizations.
-  """
-
   use ExEasyPost.Resource, import: [
     :create,
     :find
