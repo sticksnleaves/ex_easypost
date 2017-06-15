@@ -45,6 +45,7 @@ defmodule ExEasyPost.Mixfile do
       # dev
       {:ex_doc, ">= 0.0.0", only: :dev},
       # test
+      {:bypass, "~> 0.6", only: :test},
       {:excoveralls, "~> 0.7", only: :test}
     ]
   end
