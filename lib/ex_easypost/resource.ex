@@ -6,21 +6,21 @@ defmodule ExEasyPost.Resource do
 
     quote bind_quoted: [import_functions: import_functions] do
       if :create in import_functions do
-        @spec create(map) :: {:ok, term} | {:error, term}
+        @spec create(map) :: ExEasyPost.Operation.t
         def create(params) do
           request(:post, create_url(), params)
         end
       end
 
       if :find in import_functions do
-        @spec find(binary, map) :: {:ok, term} | {:error, term}
+        @spec find(binary, map) :: ExEasyPost.Operation.t
         def find(id, params \\ %{}) do
           request(:get, find_url(id), params)
         end
       end
 
       if :list in import_functions do
-        @spec list(map) :: {:ok, term} | {:error, term}
+        @spec list(map) :: ExEasyPost.Operation.t
         def list(params \\ %{}) do
           request(:get, list_url(), params)
         end
