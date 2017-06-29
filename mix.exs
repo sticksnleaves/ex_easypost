@@ -39,7 +39,7 @@ defmodule ExEasyPost.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.11.0", optional: true},
+      {:httpoison, "~> 0.12", optional: true},
       {:poison, "~> 2.2 or ~> 3.0", optional: true},
       # dev
       {:ex_doc, ">= 0.0.0", only: :dev},
