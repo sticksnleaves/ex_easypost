@@ -12,6 +12,13 @@ defmodule ExEasyPost.Resource do
         end
       end
 
+      if :delete in import_functions do
+        @spec delete(binary) :: ExEasyPost.Operation.t
+        def delete(id) do
+          request(:delete, delete_url(id))
+        end
+      end
+
       if :find in import_functions do
         @spec find(binary, map) :: ExEasyPost.Operation.t
         def find(id, params \\ %{}) do
@@ -23,6 +30,13 @@ defmodule ExEasyPost.Resource do
         @spec list(map) :: ExEasyPost.Operation.t
         def list(params \\ %{}) do
           request(:get, list_url(), params)
+        end
+      end
+
+      if :update in import_functions do
+        @spec update(binary, map) :: ExEasyPost.Operation.t
+        def update(id, params \\ %{}) do
+          request(:put, update_url(id), params)
         end
       end
 
