@@ -10,7 +10,7 @@ defmodule ExEasyPost.AddressTest do
     end
   end
 
-  describe "find/2" do
+  describe "find/1" do
     test "builds an operation" do
       id = "foo"
 
