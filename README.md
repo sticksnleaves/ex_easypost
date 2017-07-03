@@ -50,14 +50,14 @@ config :ex_easypost, api_key: {:system, "EASYPOST_API_KEY"}
 - [x] Insurances
 - [x] Shipments
 - [x] Trackers
-- [ ] Batches
+- [x] Batches
 - [ ] CustomsInfos
 - [ ] CustomsItems
 - [ ] Orders
 - [ ] Pickups
 - [ ] Reports
 - [ ] ScanForms
-- [ ] Webhooks
+- [x] Webhooks
 - [ ] API Keys
 - [ ] Users
 - [ ] Child Users
