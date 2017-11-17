@@ -8,17 +8,17 @@ defmodule ExEasyPost.Webhook do
   ]
 
   @doc false
-  def create_url, do: "webhooks"
+  def create_path, do: "webhooks"
 
   @doc false
-  def delete_url(id), do: "webhooks/#{id}"
+  def delete_path(id), do: "webhooks/#{id}"
 
   @doc false
-  def find_url(id), do: "webhooks/#{id}"
+  def find_path(id), do: "webhooks/#{id}"
 
   @doc false
-  def list_url, do: "webhooks"
+  def list_path, do: "webhooks"
 
   @doc false
-  def update_url(id), do: "webhooks/#{id}"
+  def update_path(id), do: "webhooks/#{id}"
 end

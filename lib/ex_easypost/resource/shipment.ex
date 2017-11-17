@@ -31,11 +31,11 @@ defmodule ExEasyPost.Shipment do
   end
 
   @doc false
-  def create_url, do: "shipments"
+  def create_path, do: "shipments"
 
   @doc false
-  def find_url(id), do: "shipments/#{id}"
+  def find_path(id), do: "shipments/#{id}"
 
   @doc false
-  def list_url, do: "shipments"
+  def list_path, do: "shipments"
 end

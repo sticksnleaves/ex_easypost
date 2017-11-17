@@ -19,7 +19,7 @@ defmodule ExEasyPost.Operation do
 
   # private
 
-  defp build_url(operation, config) do
+  defp build_path(operation, config) do
     protocol = config[:protocol]
     host = config[:host]
     port = config[:port]
@@ -38,7 +38,7 @@ defmodule ExEasyPost.Operation do
   end
 
   defp request(operation, config) do
-    url = build_url(operation, config)
+    url = build_path(operation, config)
 
     ExEasyPost.Client.request(operation.http_method, url, operation.params, operation.headers, config)
   end

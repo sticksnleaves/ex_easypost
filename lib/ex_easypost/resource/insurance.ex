@@ -6,11 +6,11 @@ defmodule ExEasyPost.Insurance do
   ]
 
   @doc false
-  def create_url, do: "insurances"
+  def create_path, do: "insurances"
 
   @doc false
-  def find_url(id), do: "insurances/#{id}"
+  def find_path(id), do: "insurances/#{id}"
 
   @doc false
-  def list_url, do: "insurances"
+  def list_path, do: "insurances"
 end

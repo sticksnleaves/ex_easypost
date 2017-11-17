@@ -6,11 +6,11 @@ defmodule ExEasyPost.Tracker do
   ]
 
   @doc false
-  def create_url, do: "trackers"
+  def create_path, do: "trackers"
 
   @doc false
-  def find_url(id), do: "trackers/#{id}"
+  def find_path(id), do: "trackers/#{id}"
 
   @doc false
-  def list_url, do: "trackers"
+  def list_path, do: "trackers"
 end

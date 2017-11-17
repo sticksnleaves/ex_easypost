@@ -8,35 +8,35 @@ defmodule ExEasyPost.Resource do
       if :create in import_functions do
         @spec create(map) :: ExEasyPost.Operation.t
         def create(params) do
-          request(:post, create_url(), params)
+          request(:post, create_path(), params)
         end
       end
 
       if :delete in import_functions do
         @spec delete(binary) :: ExEasyPost.Operation.t
         def delete(id) do
-          request(:delete, delete_url(id))
+          request(:delete, delete_path(id))
         end
       end
 
       if :find in import_functions do
         @spec find(binary, map) :: ExEasyPost.Operation.t
         def find(id, params \\ %{}) do
-          request(:get, find_url(id), params)
+          request(:get, find_path(id), params)
         end
       end
 
       if :list in import_functions do
         @spec list(map) :: ExEasyPost.Operation.t
         def list(params \\ %{}) do
-          request(:get, list_url(), params)
+          request(:get, list_path(), params)
         end
       end
 
       if :update in import_functions do
         @spec update(binary, map) :: ExEasyPost.Operation.t
         def update(id, params \\ %{}) do
-          request(:put, update_url(id), params)
+          request(:put, update_path(id), params)
         end
       end
 

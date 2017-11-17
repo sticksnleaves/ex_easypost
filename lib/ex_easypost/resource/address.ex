@@ -5,8 +5,8 @@ defmodule ExEasyPost.Address do
   ]
 
   @doc false
-  def create_url, do: "addresses"
+  def create_path, do: "addresses"
 
   @doc false
-  def find_url(id), do: "addresses/#{id}"
+  def find_path(id), do: "addresses/#{id}"
 end

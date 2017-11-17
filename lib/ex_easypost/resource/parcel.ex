@@ -5,8 +5,8 @@ defmodule ExEasyPost.Parcel do
   ]
 
   @doc false
-  def create_url, do: "parcels"
+  def create_path, do: "parcels"
 
   @doc false
-  def find_url(id), do: "parcels/#{id}"
+  def find_path(id), do: "parcels/#{id}"
 end

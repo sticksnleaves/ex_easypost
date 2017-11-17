@@ -24,5 +24,5 @@ defmodule ExEasyPost.Batch do
   end
 
   @doc false
-  def create_url, do: "batches"
+  def create_path, do: "batches"
 end
