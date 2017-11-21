@@ -16,7 +16,7 @@ defmodule ExEasyPost.Insurance do
 
   @doc "Retrieve a list of Insurances"
   @spec list(map) :: ExEasyPost.Operation.t
-  def list(params) do
+  def list(params \\ %{}) do
     %ExEasyPost.Operation{ http_method: :get, params: params, path: "insurances" }
   end
 end
