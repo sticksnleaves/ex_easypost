@@ -5,7 +5,7 @@ defmodule ExEasyPost.InsuranceTest do
     test "builds an operation" do
       params = %{foo: "bar"}
 
-      assert %ExEasyPost.Operation{http_method: :post, params: ^params, path: "insurances"}
+      assert %ExEasyPost.Operation{http_method: :post, params: %{ insurance: ^params }, path: "insurances"}
         = ExEasyPost.Insurance.create(params)
     end
   end
