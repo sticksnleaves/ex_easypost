@@ -3,18 +3,19 @@ defmodule ExEasyPost.ShipmentTest do
 
   describe "buy/1" do
     test "builds an operation" do
-      id = "foo"
+      id     = "foo"
+      params = %{ foo: "bar" }
 
-      assert %ExEasyPost.Operation{http_method: :post, path: "shipments/foo/buy"}
-        = ExEasyPost.Shipment.buy(id)
+      assert %ExEasyPost.Operation{http_method: :post, params: ^params, path: "shipments/foo/buy"}
+        = ExEasyPost.Shipment.buy(id, params)
     end
   end
 
   describe "create/1" do
     test "builds an operation" do
-      params = %{foo: "bar"}
+      params = %{ foo: "bar" }
 
-      assert %ExEasyPost.Operation{http_method: :post, params: ^params, path: "shipments"}
+      assert %ExEasyPost.Operation{http_method: :post, params: %{ shipment: ^params }, path: "shipments"}
         = ExEasyPost.Shipment.create(params)
     end
   end
@@ -30,20 +31,21 @@ defmodule ExEasyPost.ShipmentTest do
 
   describe "insure/2" do
     test "builds an operation" do
-      id = "foo"
-      amount = 3.14
+      id     = "foo"
+      params = %{ amount: 3.14 }
 
-      assert %ExEasyPost.Operation{http_method: :post, params: %{amount: ^amount}, path: "shipments/foo/insure"}
-        = ExEasyPost.Shipment.insure(id, amount)
+      assert %ExEasyPost.Operation{http_method: :post, params: ^params, path: "shipments/foo/insure"}
+        = ExEasyPost.Shipment.insure(id, params)
     end
   end
 
   describe "label/1" do
     test "builds an operation" do
       id = "foo"
+      params = %{ file_format: ZPL }
 
-      assert %ExEasyPost.Operation{http_method: :get, path: "shipments/foo/label"}
-        = ExEasyPost.Shipment.label(id)
+      assert %ExEasyPost.Operation{http_method: :get, params: ^params, path: "shipments/foo/label"}
+        = ExEasyPost.Shipment.label(id, params)
     end
   end
 
