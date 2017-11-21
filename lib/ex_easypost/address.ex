@@ -5,7 +5,7 @@ defmodule ExEasyPost.Address do
   @verify [ :verify, :verify_strict ]
 
   @doc """
-  Create an Address.
+  Create and verify an Address.
 
   ## Parameters
     - `:street1` - first line of the address
