@@ -53,7 +53,7 @@ config :ex_easypost, api_key: {:system, "EASYPOST_API_KEY"}
 - [x] Batches
 - [x] CustomsInfos
 - [x] CustomsItems
-- [ ] Orders
+- [x] Orders
 - [ ] Pickups
 - [ ] Reports
 - [ ] ScanForms
