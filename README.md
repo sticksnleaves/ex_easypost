@@ -59,7 +59,6 @@ config :ex_easypost, api_key: {:system, "EASYPOST_API_KEY"}
 - [x] ScanForms
 - [x] Webhooks
 - [x] API Keys
-- [ ] Users
-- [ ] Child Users
+- [x] Users
 - [ ] CarrierTypes
 - [ ] CarrierAccounts
