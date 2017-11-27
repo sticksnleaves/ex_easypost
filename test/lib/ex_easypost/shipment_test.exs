@@ -51,7 +51,7 @@ defmodule ExEasyPost.ShipmentTest do
 
   describe "list/1" do
     test "builds an operation" do
-      params = %{foo: "bar"}
+      params = %{ foo: "bar" }
 
       assert %ExEasyPost.Operation{ http_method: :get, params: ^params, path: "shipments" }
         = ExEasyPost.Shipment.list(params)
