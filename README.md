@@ -60,5 +60,5 @@ config :ex_easypost, api_key: {:system, "EASYPOST_API_KEY"}
 - [x] Webhooks
 - [x] API Keys
 - [x] Users
-- [ ] CarrierTypes
+- [x] CarrierTypes
 - [ ] CarrierAccounts
