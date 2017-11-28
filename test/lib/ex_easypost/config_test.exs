@@ -16,7 +16,7 @@ defmodule ExEasyPost.ConfigTest do
     System.put_env(key, value)
 
     assert(
-      ExEasyPost.Config.new(api_key: {:system, key})
+      ExEasyPost.Config.new(api_key: { :system, key })
       |> Map.get(:api_key) == value
     )
   end

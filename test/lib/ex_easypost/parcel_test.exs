@@ -3,9 +3,9 @@ defmodule ExEasyPost.ParcelTest do
 
   describe "create/1" do
     test "builds an operation" do
-      params = %{foo: "bar"}
+      params = %{ foo: "bar" }
 
-      assert %ExEasyPost.Operation{http_method: :post, params: ^params, path: "parcels"}
+      assert %ExEasyPost.Operation{ http_method: :post, params: %{ parcel: ^params }, path: "parcels" }
         = ExEasyPost.Parcel.create(params)
     end
   end
@@ -14,7 +14,7 @@ defmodule ExEasyPost.ParcelTest do
     test "builds an operation" do
       id = "foo"
 
-      assert %ExEasyPost.Operation{http_method: :get, path: "parcels/foo"}
+      assert %ExEasyPost.Operation{ http_method: :get, path: "parcels/foo" }
         = ExEasyPost.Parcel.find(id)
     end
   end
