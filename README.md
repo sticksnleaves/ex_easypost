@@ -46,20 +46,20 @@ config :ex_easypost, api_key: {:system, "EASYPOST_API_KEY"}
 
 ## Supported Endpoints
 
-- [x] Addresses
-- [x] Parcels
-- [x] Insurances
-- [x] Shipments
-- [x] Trackers
-- [x] Batches
-- [x] CustomsInfos
-- [x] CustomsItems
-- [x] Orders
-- [x] Pickups
-- [x] Reports
-- [x] ScanForms
-- [x] Webhooks
-- [x] API Keys
-- [x] Users
-- [x] CarrierTypes
-- [x] CarrierAccounts
+- [x] [Address](https://hexdocs.pm/ex_easypost/ExEasyPost.Address.html)
+- [x] [Parcel](https://hexdocs.pm/ex_easypost/ExEasyPost.Parcel.html)
+- [x] [Insurance](https://hexdocs.pm/ex_easypost/ExEasyPost.Insurance.html)
+- [x] [Shipment](https://hexdocs.pm/ex_easypost/ExEasyPost.Shipment.html)
+- [x] [Tracker](https://hexdocs.pm/ex_easypost/ExEasyPost.Tracker.html)
+- [x] [Batch](https://hexdocs.pm/ex_easypost/ExEasyPost.Batch.html)
+- [x] [CustomsInfo](https://hexdocs.pm/ex_easypost/ExEasyPost.CustomsInfo.html)
+- [x] [CustomsItem](https://hexdocs.pm/ex_easypost/ExEasyPost.CustomsItem.html)
+- [x] [Order](https://hexdocs.pm/ex_easypost/ExEasyPost.Order.html)
+- [x] [Pickup](https://hexdocs.pm/ex_easypost/ExEasyPost.Pickup.html)
+- [x] [Report](https://hexdocs.pm/ex_easypost/ExEasyPost.Report.html)
+- [x] [ScanForm](https://hexdocs.pm/ex_easypost/ExEasyPost.ScanForm.html)
+- [x] [Webhook](https://hexdocs.pm/ex_easypost/ExEasyPost.Webhook.html)
+- [x] [API Key](https://hexdocs.pm/ex_easypost/ExEasyPost.APIKey.html)
+- [x] [User](https://hexdocs.pm/ex_easypost/ExEasyPost.User.html)
+- [x] [CarrierType](https://hexdocs.pm/ex_easypost/ExEasyPost.CarrierType.html)
+- [x] [CarrierAccount](https://hexdocs.pm/ex_easypost/ExEasyPost.CarrierAccount.html)
