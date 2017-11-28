@@ -44,7 +44,7 @@ You can provide an application wide config, as well.
 config :ex_easypost, api_key: {:system, "EASYPOST_API_KEY"}
 ```
 
-## Supported Endpoints
+## Supported Resources
 
 - [x] [Address](https://hexdocs.pm/ex_easypost/ExEasyPost.Address.html)
 - [x] [Parcel](https://hexdocs.pm/ex_easypost/ExEasyPost.Parcel.html)
