@@ -42,14 +42,14 @@ failure.
 ExEasyPost allows you to provide configuration as part of your application
 config or on a per-request basis.
 
-*Application configuration*
+**Application configuration**
 
 ```elixir
 config :ex_easypost,
   api_key: "xxx"
 ```
 
-*Per-request configuration*
+**Per-request configuration**
 
 ```elixir
 config = %{api_key: "xxx"}
@@ -58,7 +58,7 @@ ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9c")
 |> ExEasyPost.request(config)
 ```
 
-*Configuration options*
+**Configuration options**
 
 - `:api_key` - your EasyPost API key
 - `:host` - host to make requests to (default: `api.easypost.com`)
