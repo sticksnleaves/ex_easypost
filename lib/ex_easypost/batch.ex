@@ -26,7 +26,7 @@ defmodule ExEasyPost.Batch do
     %ExEasyPost.Operation{ http_method: :post, params: %{ batch: %{ shipments: params } }, path: "batches/#{id}/remove_shipments" }
   end
 
-  @doc "Generated a manifest for a Batch"
+  @doc "Generate a manifest for a Batch"
   @spec scan_form(binary) :: ExEasyPost.Operation.t
   def scan_form(id) do
     %ExEasyPost.Operation{ http_method: :post, path: "batches/#{id}/scan_form" }
