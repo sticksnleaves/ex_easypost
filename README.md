@@ -3,45 +3,68 @@
 [![Build Status](https://travis-ci.org/sticksnleaves/ex_easypost.svg?branch=master)](https://travis-ci.org/sticksnleaves/ex_easypost)
 [![HexDocs](https://img.shields.io/badge/hexdocs-release-blue.svg)](https://hexdocs.pm/ex_easypost/)
 
-EasyPost client library for Elixir.
+ExEasyPost is an Elixir client library for the EasyPost API.
+
+## Features
+
+1. Support for all EasyPost resources
+2. Minimal configuration. Choose your favorite HTTP client and JSON codec.
+3. Support for per-request configuration
 
 ## Getting Started
 
-You will need a compatible HTTP client (default: `:httpoison`) and JSON codec
-(default: `:poison`).
+ExEasyPost allows you to choose which HTTP client and JSON codec you would like
+to use. ExEasyPost supports `:httpoison` (HTTP client) and `:poison` (JSON
+codec) out of the box.
 
 ```elixir
-def deps do
+defp deps do
   [
     {:ex_easypost, "~> 1.0"},
     {:httpoison, "~> 0.13"},
-    {:poison, "~> 2.2 or ~> 3.1"}
+    {:poison, "~> 3.1"}
   ]
 end
 ```
 
 ## Usage
 
-ExEasyPost takes a data driven approach to making API requests. Each function
-meant to perform an API action will generate a struct which can then be used
-to perform a particular operation.
-
 ```elixir
-ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9b") |> ExEasyPost.request
+ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9c")
+|> ExEasyPost.request()
 ```
 
-It's also possible to pass client configuration per request.
+### Configuration
+
+ExEasyPost allows you to provide configuration as part of your application
+config or on a per-request basis.
+
+*Application configuration*
 
 ```elixir
-ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9b") |> ExEasyPost.request(api_key: "xxxx")
+config :ex_easypost,
+  api_key: "xxx"
 ```
 
-You can provide an application wide config, as well.
+*Per-request configuration*
 
 ```elixir
-# config.exs
-config :ex_easypost, api_key: {:system, "EASYPOST_API_KEY"}
+config = %{api_key: "xxx"}
+
+ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9c")
+|> ExEasyPost.request()
 ```
+
+*Configuration options*
+
+- `:api_key` - your EasyPost API key
+- `:host` - host to make requests to (default: `api.easypost.com`)
+- `:http_client` - HTTP client used to make requests (default: `:httpoison`)
+- `:http_opts` - configuration options passed to the api client
+- `:json_parser` - codec used to encode and decode JSON (default: `:poison`)
+- `:path` - URI path to make requests to (default: `v2`)
+- `:port` - HTTP port to make requests to
+- `:protocol` - HTTP protocol to use when making requests (default: `https`)
 
 ## Supported Resources
 
