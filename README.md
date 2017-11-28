@@ -1,7 +1,6 @@
 # ExEasyPost
 
 [![Build Status](https://travis-ci.org/sticksnleaves/ex_easypost.svg?branch=master)](https://travis-ci.org/sticksnleaves/ex_easypost)
-
 [![HexDocs](https://img.shields.io/badge/hexdocs-release-blue.svg)](https://hexdocs.pm/ex_easypost/)
 
 EasyPost client library for Elixir.
