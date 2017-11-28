@@ -34,6 +34,9 @@ ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9c")
 |> ExEasyPost.request()
 ```
 
+ExEasyPost will return `{:ok, response}` on success and `{:error, reason}` on
+failure.
+
 ### Configuration
 
 ExEasyPost allows you to provide configuration as part of your application
@@ -52,7 +55,7 @@ config :ex_easypost,
 config = %{api_key: "xxx"}
 
 ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9c")
-|> ExEasyPost.request()
+|> ExEasyPost.request(config)
 ```
 
 *Configuration options*
