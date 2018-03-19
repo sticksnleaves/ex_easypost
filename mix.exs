@@ -1,7 +1,7 @@
 defmodule ExEasyPost.Mixfile do
   use Mix.Project
 
-  @version "1.0.0"
+  @version "1.0.1"
 
   def project do
     [app: :ex_easypost,
@@ -39,13 +39,13 @@ defmodule ExEasyPost.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.12", optional: true},
+      {:httpoison, "~> 0.12 or ~> 1.0", optional: true},
       {:poison, "~> 2.2 or ~> 3.0", optional: true},
       # dev
-      {:ex_doc, ">= 0.0.0", only: :dev},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       # test
       {:bypass, "~> 0.6", only: :test},
-      {:excoveralls, "~> 0.7", only: :test}
+      {:excoveralls, "~> 0.7", only: :test, runtime: false}
     ]
   end
 
