@@ -18,7 +18,7 @@ defmodule ExEasyPostTest do
       Plug.Conn.resp(conn, 200, ~s<{}>)
     end)
 
-    assert { :ok, _response } = @operation |> ExEasyPost.request
+    assert { :ok, %{} } = @operation |> ExEasyPost.request
   end
 
   test "converts params to a URL query string for GET requests", %{ bypass: bypass } do

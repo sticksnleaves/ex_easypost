@@ -79,7 +79,7 @@ defmodule ExEasyPost.Operation do
       "" ->
         { :ok, %{} }
       _ ->
-        { :ok, config[:json_parser].decode(body) }
+        { :ok, config[:json_parser].decode!(body) }
     end
   end
   defp parse({ :ok, %{ body: body, status_code: status_code } }, config)
