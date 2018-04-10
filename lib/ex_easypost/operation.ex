@@ -60,7 +60,7 @@ defmodule ExEasyPost.Operation do
     "#{url}/#{path}/#{endpoint}#{build_query(operation)}"
   end
 
-  defp encode_params(%{ http_method: :post, params: params }, %{ json_parser: parser }) do
+  defp encode_params(%{ http_method: :post, params: params }, %{ json_codec: parser }) do
     parser.encode!(params)
   end
   defp encode_params(_operation, _config), do: ""
@@ -79,7 +79,7 @@ defmodule ExEasyPost.Operation do
       "" ->
         { :ok, %{} }
       _ ->
-        { :ok, config[:json_parser].decode!(body) }
+        { :ok, config[:json_codec].decode!(body) }
     end
   end
   defp parse({ :ok, %{ body: body, status_code: status_code } }, config)
@@ -89,7 +89,7 @@ defmodule ExEasyPost.Operation do
       "" ->
         { :error, { :http_error, status_code, %{} } }
       _ ->
-        { :error, { :http_error, status_code, config[:json_parser].decode(body) } }
+        { :error, { :http_error, status_code, config[:json_codec].decode(body) } }
     end
   end
   defp parse({ :error, %{ reason: reason } }, _config) do

@@ -2,7 +2,7 @@ defmodule ExEasyPost.Config do
   @moduledoc false
 
   @config [
-    :api_key, :host, :http_client, :http_opts, :json_parser, :path, :port,
+    :api_key, :host, :http_client, :http_opts, :json_codec, :path, :port,
     :protocol
   ]
 
@@ -11,7 +11,7 @@ defmodule ExEasyPost.Config do
     host: "api.easypost.com",
     http_client: ExEasyPost.Client.HTTPoison,
     http_opts: [],
-    json_parser: Poison,
+    json_codec: Poison,
     path: "v2",
     port: nil,
     protocol: "https"
