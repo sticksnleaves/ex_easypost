@@ -9,7 +9,7 @@ defmodule ExEasyPost.Config do
   @defaults %{
     api_key: nil,
     host: "api.easypost.com",
-    http_client: ExEasyPost.Client.HTTPoison,
+    http_client: ExEasyPost.Client.Hackney,
     http_opts: [],
     json_codec: Poison,
     path: "v2",
