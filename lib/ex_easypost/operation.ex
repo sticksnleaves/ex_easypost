@@ -87,12 +87,12 @@ defmodule ExEasyPost.Operation do
   do
     case body do
       "" ->
-        { :error, { :http_error, status_code, %{} } }
+        { :error, %{} }
       _ ->
-        { :error, { :http_error, status_code, config[:json_codec].decode(body) } }
+        { :error, config[:json_codec].decode!(body) }
     end
   end
   defp parse({ :error, %{ reason: reason } }, _config) do
-    { :error, { :client_error, reason } }
+    { :error, reason }
   end
 end

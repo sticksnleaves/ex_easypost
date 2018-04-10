@@ -38,7 +38,7 @@ defmodule ExEasyPostTest do
       Plug.Conn.resp(conn, 400, ~s<{}>)
     end)
 
-    assert { :error, { :http_error, 400, _reason } } =
+    assert { :error, _reason } =
       @operation |> ExEasyPost.request
   end
 end
