@@ -2,7 +2,7 @@ defmodule ExEasyPost.Client.HTTPoison do
   @moduledoc """
   HTTPoison based HTTP client.
 
-  Options can be set for :httpoison with the following config:
+  Options can be set for `:httpoison` with the following config:
 
   ```elixir
   config :ex_easypost, :httpoison_opts,
@@ -12,8 +12,8 @@ defmodule ExEasyPost.Client.HTTPoison do
 
   @behaviour ExEasyPost.Client.HTTP
 
-  def request(method, url, body \\ "", headers \\ [], http_opts \\ []) do
-    opts = http_opts ++ httpoison_opts()
+  def request(method, url, body \\ "", headers \\ [], client_opts \\ []) do
+    opts = client_opts ++ httpoison_opts()
 
     case HTTPoison.request(method, url, body, headers, opts) do
       {:ok, response} ->

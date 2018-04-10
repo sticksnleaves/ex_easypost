@@ -64,7 +64,7 @@ ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9c")
 - `:host` - host to make requests to (default: `api.easypost.com`)
 - `:http_client` - HTTP client used to make requests (default: `:httpoison`)
 - `:http_opts` - configuration options passed to the api client
-- `:json_parser` - codec used to encode and decode JSON (default: `:poison`)
+- `:json_codec` - codec used to encode and decode JSON (default: `:poison`)
 - `:path` - URI path to make requests to (default: `v2`)
 - `:port` - HTTP port to make requests to
 - `:protocol` - HTTP protocol to use when making requests (default: `https`)
