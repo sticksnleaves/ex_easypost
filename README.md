@@ -14,14 +14,14 @@ ExEasyPost is an Elixir client library for the EasyPost API.
 ## Getting Started
 
 ExEasyPost allows you to choose which HTTP client and JSON codec you would like
-to use. ExEasyPost supports `:httpoison` (HTTP client) and `:poison` (JSON
-codec) out of the box.
+to use. ExEasyPost supports `:hackney` and `:httpoison` (HTTP clients) and
+`:poison` and `:jason` (JSON codecs) out of the box.
 
 ```elixir
 defp deps do
   [
-    {:ex_easypost, "~> 1.0"},
-    {:httpoison, "~> 0.13"},
+    {:ex_easypost, "~> 2.0"},
+    {:hackney, "~> 1.12"},
     {:poison, "~> 3.1"}
   ]
 end
@@ -62,9 +62,9 @@ ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9c")
 
 - `:api_key` - your EasyPost API key
 - `:host` - host to make requests to (default: `api.easypost.com`)
-- `:http_client` - HTTP client used to make requests (default: `:httpoison`)
+- `:http_client` - HTTP client used to make requests (default: `ExEasyPost.Client.Hackney`)
 - `:http_opts` - configuration options passed to the api client
-- `:json_codec` - codec used to encode and decode JSON (default: `:poison`)
+- `:json_codec` - codec used to encode and decode JSON (default: `Poison`)
 - `:path` - URI path to make requests to (default: `v2`)
 - `:port` - HTTP port to make requests to
 - `:protocol` - HTTP protocol to use when making requests (default: `https`)
