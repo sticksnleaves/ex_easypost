@@ -15,7 +15,7 @@ cache:
     - _build
     - deps
 before_script:
-  - MIX_ENV=test mix compile
+  - mix help
   - travis_wait mix dialyzer --plt
 script:
   - mix coveralls.travis
