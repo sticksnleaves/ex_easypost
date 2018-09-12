@@ -13,6 +13,7 @@ defmodule ExEasyPost.Mixfile do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       dialyzer: [plt_add_apps: [:hackney, :httpoison]],
+      lockfile: lockfile(),
       package: package(),
       preferred_cli_env: [
         coveralls: :test,
@@ -43,6 +44,16 @@ defmodule ExEasyPost.Mixfile do
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
+
+  defp lockfile do
+    cond do
+      Version.match?(System.version(), ">= 1.4.0 and < 1.6.0") ->
+        "mix_1_4.lock"
+
+      true ->
+        "mix.lock"
+    end
+  end
 
   defp package do
     [
