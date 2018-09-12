@@ -14,7 +14,7 @@ cache:
   directories:
     - _build
     - deps
-before_scripts:
+before_script:
   - MIX_ENV=test mix compile
   - travis_wait mix dialyzer --plt
 script:
