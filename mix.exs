@@ -4,21 +4,23 @@ defmodule ExEasyPost.Mixfile do
   @version "2.0.1"
 
   def project do
-    [app: :ex_easypost,
-     version: @version,
-     elixir: "~> 1.4",
-     elixirc_paths: elixirc_paths(Mix.env),
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps(),
-     dialyzer: [plt_add_apps: [:hackney, :httpoison]],
-     package: package(),
-     preferred_cli_env: [
-       "coveralls": :test,
-       "coveralls.html": :test,
-       "coveralls.travis": :test
-     ],
-     test_coverage: [tool: ExCoveralls]]
+    [
+      app: :ex_easypost,
+      version: @version,
+      elixir: "~> 1.4",
+      elixirc_paths: elixirc_paths(Mix.env()),
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps(),
+      dialyzer: [plt_add_apps: [:hackney, :httpoison]],
+      package: package(),
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.html": :test,
+        "coveralls.travis": :test
+      ],
+      test_coverage: [tool: ExCoveralls]
+    ]
   end
 
   def application do
@@ -40,7 +42,7 @@ defmodule ExEasyPost.Mixfile do
   end
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(_),     do: ["lib"]
+  defp elixirc_paths(_), do: ["lib"]
 
   defp package do
     [
