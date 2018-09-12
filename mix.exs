@@ -36,7 +36,7 @@ defmodule ExEasyPost.Mixfile do
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:bypass, "~> 0.6", only: :test},
       {:excoveralls, "~> 0.7", only: :test, runtime: false},
-      {:dialyxir, "~> 1.0.0-rc", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0.0-rc", only: [:dev, :test], runtime: false}
     ]
   end
 
