@@ -33,12 +33,10 @@ defmodule ExEasyPost.Mixfile do
       {:hackney, "~> 1.0", optional: true},
       {:httpoison, "~> 0.12 or ~> 1.0", optional: true},
       {:poison, ">= 2.2.0 and < 5.0.0", optional: true},
-      # dev
-      {:dialyxir, "~> 1.0.0-rc", only: :dev, runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      # test
       {:bypass, "~> 0.6", only: :test},
-      {:excoveralls, "~> 0.7", only: :test, runtime: false}
+      {:excoveralls, "~> 0.7", only: :test, runtime: false},
+      {:dialyxir, "~> 1.0.0-rc", only: [:dev, :test], runtime: false},
     ]
   end
 
