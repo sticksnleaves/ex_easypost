@@ -20,29 +20,17 @@ defmodule ExEasyPost.Mixfile do
      test_coverage: [tool: ExCoveralls]]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
-    # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:my_dep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:my_dep, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
   defp deps do
     [
       {:hackney, "~> 1.0", optional: true},
       {:httpoison, "~> 0.12 or ~> 1.0", optional: true},
-      {:poison, "~> 2.2 or ~> 3.0", optional: true},
+      {:poison, ">= 2.2.0 and < 5.0.0", optional: true},
       # dev
+      {:dialyxir, "~> 1.0.0-rc", only: :dev, runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       # test
       {:bypass, "~> 0.6", only: :test},
