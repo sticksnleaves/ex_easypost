@@ -13,8 +13,7 @@ defmodule ExEasyPost do
   This is useful if you want to have certain configuration changed on a per
   request basis.
   """
-  @spec request(ExEasyPost.Operation.t) :: {:ok, term} | {:error, term}
-  @spec request(ExEasyPost.Operation.t, Keyword.t) :: {:ok, term} | {:error, term}
+  @spec request(ExEasyPost.Operation.t(), Keyword.t()) :: {:ok, term} | {:error, term}
   def request(operation, overrides \\ []) do
     ExEasyPost.Operation.perform(operation, ExEasyPost.Config.new(overrides))
   end

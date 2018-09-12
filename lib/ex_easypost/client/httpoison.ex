@@ -18,6 +18,7 @@ defmodule ExEasyPost.Client.HTTPoison do
     case HTTPoison.request(method, url, body, headers, opts) do
       {:ok, response} ->
         {:ok, %{status_code: response.status_code, body: response.body}}
+
       {:error, reason} ->
         {:error, %{reason: reason}}
     end

@@ -3,10 +3,13 @@ defmodule ExEasyPost.TrackerTest do
 
   describe "create/1" do
     test "builds an operation" do
-      params = %{ foo: "bar" }
+      params = %{foo: "bar"}
 
-      assert %ExEasyPost.Operation{ http_method: :post, params: %{ tracker: ^params }, path: "trackers" }
-        = ExEasyPost.Tracker.create(params)
+      assert %ExEasyPost.Operation{
+               http_method: :post,
+               params: %{tracker: ^params},
+               path: "trackers"
+             } = ExEasyPost.Tracker.create(params)
     end
   end
 
@@ -14,17 +17,17 @@ defmodule ExEasyPost.TrackerTest do
     test "builds an operation" do
       id = "foo"
 
-      assert %ExEasyPost.Operation{ http_method: :get, path: "trackers/foo" }
-        = ExEasyPost.Tracker.find(id)
+      assert %ExEasyPost.Operation{http_method: :get, path: "trackers/foo"} =
+               ExEasyPost.Tracker.find(id)
     end
   end
 
   describe "list/1" do
     test "builds an operation" do
-      params = %{ foo: "bar" }
+      params = %{foo: "bar"}
 
-      assert %ExEasyPost.Operation{ http_method: :get, params: ^params, path: "trackers" }
-        = ExEasyPost.Tracker.list(params)
+      assert %ExEasyPost.Operation{http_method: :get, params: ^params, path: "trackers"} =
+               ExEasyPost.Tracker.list(params)
     end
   end
 end

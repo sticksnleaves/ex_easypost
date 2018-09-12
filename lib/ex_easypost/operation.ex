@@ -19,39 +19,37 @@ defmodule ExEasyPost.Operation do
   |> ExEasyPost.request()
   """
 
-  defstruct [
-    headers: [],
-    http_method: nil,
-    params: %{},
-    path: nil
-  ]
+  defstruct headers: [],
+            http_method: nil,
+            params: %{},
+            path: nil
 
   @type t :: %__MODULE__{
-    headers: list,
-    http_method: atom,
-    params: map,
-    path: String.t
-  }
+          headers: list,
+          http_method: atom,
+          params: map,
+          path: String.t()
+        }
 
-  @spec perform(t, map) :: { :ok, map } | { :error, map }
+  @spec perform(t, map) :: {:ok, map} | {:error, map}
   def perform(operation, config) do
     request(operation, config) |> parse(config)
   end
 
   # private
 
-  defp build_query(%{ http_method: :get, params: params })
-    when params != %{}
-  do
+  defp build_query(%{http_method: :get, params: params})
+       when params != %{} do
     "?#{URI.encode_query(params)}"
   end
+
   defp build_query(_operation), do: ""
 
   defp build_url(operation, config) do
     protocol = config[:protocol]
-    host     = config[:host]
-    port     = config[:port]
-    path     = config[:path]
+    host = config[:host]
+    port = config[:port]
+    path = config[:path]
     endpoint = operation.path
 
     url = "#{protocol}://#{host}"
@@ -65,39 +63,42 @@ defmodule ExEasyPost.Operation do
     "#{url}/#{path}/#{endpoint}#{build_query(operation)}"
   end
 
-  defp encode_params(%{ http_method: :post, params: params }, %{ json_codec: parser }) do
+  defp encode_params(%{http_method: :post, params: params}, %{json_codec: parser}) do
     parser.encode!(params)
   end
+
   defp encode_params(_operation, _config), do: ""
 
   defp request(operation, config) do
     params = encode_params(operation, config)
-    url    = build_url(operation, config)
+    url = build_url(operation, config)
 
     ExEasyPost.Client.request(operation.http_method, url, params, operation.headers, config)
   end
 
-  defp parse({ :ok, %{ body: body, status_code: status_code } }, config)
-    when status_code in 200..299
-  do
+  defp parse({:ok, %{body: body, status_code: status_code}}, config)
+       when status_code in 200..299 do
     case body do
       "" ->
-        { :ok, %{} }
+        {:ok, %{}}
+
       _ ->
-        { :ok, config[:json_codec].decode!(body) }
+        {:ok, config[:json_codec].decode!(body)}
     end
   end
-  defp parse({ :ok, %{ body: body, status_code: status_code } }, config)
-    when status_code >= 400
-  do
+
+  defp parse({:ok, %{body: body, status_code: status_code}}, config)
+       when status_code >= 400 do
     case body do
       "" ->
-        { :error, %{} }
+        {:error, %{}}
+
       _ ->
-        { :error, config[:json_codec].decode!(body) }
+        {:error, config[:json_codec].decode!(body)}
     end
   end
-  defp parse({ :error, %{ reason: reason } }, _config) do
-    { :error, reason }
+
+  defp parse({:error, %{reason: reason}}, _config) do
+    {:error, reason}
   end
 end

@@ -3,8 +3,12 @@ defmodule ExEasyPost.CustomsItem do
   """
 
   @doc "Create a CustomsItem"
-  @spec create(map) :: ExEasyPost.Operation.t
+  @spec create(map) :: ExEasyPost.Operation.t()
   def create(params) do
-    %ExEasyPost.Operation{ http_method: :post, params: %{ customs_item: params }, path: "customs_items" }
+    %ExEasyPost.Operation{
+      http_method: :post,
+      params: %{customs_item: params},
+      path: "customs_items"
+    }
   end
 end

@@ -3,6 +3,6 @@ defmodule ExEasyPost.CarrierType do
   """
 
   def list() do
-    %ExEasyPost.Operation{ http_method: :get, path: "carrier_types" }
+    %ExEasyPost.Operation{http_method: :get, path: "carrier_types"}
   end
 end

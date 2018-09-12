@@ -3,10 +3,13 @@ defmodule ExEasyPost.CustomsInfoTest do
 
   describe "create/1" do
     test "builds an operation" do
-      params = %{ foo: "bar" }
+      params = %{foo: "bar"}
 
-      assert %ExEasyPost.Operation{ http_method: :post, params: %{ customs_info: ^params }, path: "customs_infos" }
-        = ExEasyPost.CustomsInfo.create(params)
+      assert %ExEasyPost.Operation{
+               http_method: :post,
+               params: %{customs_info: ^params},
+               path: "customs_infos"
+             } = ExEasyPost.CustomsInfo.create(params)
     end
   end
 end

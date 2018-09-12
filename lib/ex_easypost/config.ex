@@ -2,7 +2,13 @@ defmodule ExEasyPost.Config do
   @moduledoc false
 
   @config [
-    :api_key, :host, :http_client, :http_opts, :json_codec, :path, :port,
+    :api_key,
+    :host,
+    :http_client,
+    :http_opts,
+    :json_codec,
+    :path,
+    :port,
     :protocol
   ]
 
@@ -45,7 +51,7 @@ defmodule ExEasyPost.Config do
 
   defp app_config do
     Application.get_all_env(:ex_easypost)
-    |> Map.new
+    |> Map.new()
     |> Map.take(@config)
   end
 

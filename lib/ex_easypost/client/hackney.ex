@@ -13,13 +13,15 @@ defmodule ExEasyPost.Client.Hackney do
   @behaviour ExEasyPost.Client.HTTP
 
   def request(method, url, body \\ "", headers \\ [], client_opts \\ []) do
-    opts = [ :with_body ] ++ client_opts ++ hackney_opts()
+    opts = [:with_body] ++ client_opts ++ hackney_opts()
 
     case :hackney.request(method, url, headers, body, opts) do
       {:ok, status, _headers} ->
         {:ok, %{body: "", status_code: status}}
+
       {:ok, status, _headers, body} ->
         {:ok, %{body: body, status_code: status}}
+
       {:error, reason} ->
         {:error, %{reason: reason}}
     end

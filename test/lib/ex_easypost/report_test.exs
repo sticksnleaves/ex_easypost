@@ -4,10 +4,10 @@ defmodule ExEasyPost.ReportTest do
   describe "create/2" do
     test "builds an operation" do
       type = "foo"
-      params = %{ foo: "bar" }
+      params = %{foo: "bar"}
 
-      assert %ExEasyPost.Operation{ http_method: :post, params: ^params, path: "reports/foo" }
-        = ExEasyPost.Report.create(type, params)
+      assert %ExEasyPost.Operation{http_method: :post, params: ^params, path: "reports/foo"} =
+               ExEasyPost.Report.create(type, params)
     end
   end
 
@@ -16,18 +16,18 @@ defmodule ExEasyPost.ReportTest do
       type = "foo"
       id = "bar"
 
-      assert %ExEasyPost.Operation{ http_method: :get, path: "reports/foo/bar" }
-        = ExEasyPost.Report.find(type, id)
+      assert %ExEasyPost.Operation{http_method: :get, path: "reports/foo/bar"} =
+               ExEasyPost.Report.find(type, id)
     end
   end
 
   describe "list/2" do
     test "builds an operation" do
       type = "foo"
-      params = %{ foo: "bar" }
+      params = %{foo: "bar"}
 
-      assert %ExEasyPost.Operation{ http_method: :get, params: ^params, path: "reports/foo" }
-        = ExEasyPost.Report.list(type, params)
+      assert %ExEasyPost.Operation{http_method: :get, params: ^params, path: "reports/foo"} =
+               ExEasyPost.Report.list(type, params)
     end
   end
 end

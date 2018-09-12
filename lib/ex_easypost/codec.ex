@@ -6,7 +6,7 @@ defmodule ExEasyPost.Codec do
   this specification. Poison and Jason fulfill this spec without modification.
   """
 
-  @callback encode!(%{}) :: String.t
+  @callback encode!(%{}) :: String.t()
 
-  @callback decode!(String.t) :: %{}
+  @callback decode!(String.t()) :: %{}
 end

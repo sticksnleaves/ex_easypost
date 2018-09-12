@@ -4,10 +4,10 @@ defmodule ExEasyPost.PickupTest do
   describe "buy/2" do
     test "builds an operation" do
       id = "foo"
-      params = %{ foo: "bar" }
+      params = %{foo: "bar"}
 
-      assert %ExEasyPost.Operation{ http_method: :post, params: ^params, path: "pickups/foo/buy" }
-        = ExEasyPost.Pickup.buy(id, params)
+      assert %ExEasyPost.Operation{http_method: :post, params: ^params, path: "pickups/foo/buy"} =
+               ExEasyPost.Pickup.buy(id, params)
     end
   end
 
@@ -15,17 +15,20 @@ defmodule ExEasyPost.PickupTest do
     test "builds an operation" do
       id = "foo"
 
-      assert %ExEasyPost.Operation{ http_method: :post, path: "pickups/foo/cancel" }
-        = ExEasyPost.Pickup.cancel(id)
+      assert %ExEasyPost.Operation{http_method: :post, path: "pickups/foo/cancel"} =
+               ExEasyPost.Pickup.cancel(id)
     end
   end
 
   describe "create/1" do
     test "builds an operation" do
-      params = %{ foo: "bar" }
+      params = %{foo: "bar"}
 
-      assert %ExEasyPost.Operation{ http_method: :post, params: %{ pickup: ^params }, path: "pickups" }
-        = ExEasyPost.Pickup.create(params)
+      assert %ExEasyPost.Operation{
+               http_method: :post,
+               params: %{pickup: ^params},
+               path: "pickups"
+             } = ExEasyPost.Pickup.create(params)
     end
   end
 
@@ -33,8 +36,8 @@ defmodule ExEasyPost.PickupTest do
     test "builds an operation" do
       id = "foo"
 
-      assert %ExEasyPost.Operation{ http_method: :get, path: "pickups/foo" }
-        = ExEasyPost.Pickup.find(id)
+      assert %ExEasyPost.Operation{http_method: :get, path: "pickups/foo"} =
+               ExEasyPost.Pickup.find(id)
     end
   end
 end

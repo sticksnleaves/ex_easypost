@@ -3,8 +3,8 @@ defmodule ExEasyPost.APIKey do
   """
 
   @doc "Retrieve a list of API keys"
-  @spec list() :: ExEasyPost.Operation.t
+  @spec list() :: ExEasyPost.Operation.t()
   def list() do
-    %ExEasyPost.Operation{ http_method: :get, path: "api_keys" }
+    %ExEasyPost.Operation{http_method: :get, path: "api_keys"}
   end
 end

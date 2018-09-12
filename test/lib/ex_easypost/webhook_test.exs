@@ -3,10 +3,13 @@ defmodule ExEasyPost.WebhookTest do
 
   describe "create/1" do
     test "builds an operation" do
-      params = %{ foo: "bar" }
+      params = %{foo: "bar"}
 
-      assert %ExEasyPost.Operation{ http_method: :post, params: %{ webhook: ^params }, path: "webhooks" }
-        = ExEasyPost.Webhook.create(params)
+      assert %ExEasyPost.Operation{
+               http_method: :post,
+               params: %{webhook: ^params},
+               path: "webhooks"
+             } = ExEasyPost.Webhook.create(params)
     end
   end
 
@@ -14,8 +17,8 @@ defmodule ExEasyPost.WebhookTest do
     test "builds an operation" do
       id = "foo"
 
-      assert %ExEasyPost.Operation{ http_method: :delete, path: "webhooks/foo" }
-        = ExEasyPost.Webhook.delete(id)
+      assert %ExEasyPost.Operation{http_method: :delete, path: "webhooks/foo"} =
+               ExEasyPost.Webhook.delete(id)
     end
   end
 
@@ -23,15 +26,15 @@ defmodule ExEasyPost.WebhookTest do
     test "builds an operation" do
       id = "foo"
 
-      assert %ExEasyPost.Operation{ http_method: :get, path: "webhooks/foo" }
-        = ExEasyPost.Webhook.find(id)
+      assert %ExEasyPost.Operation{http_method: :get, path: "webhooks/foo"} =
+               ExEasyPost.Webhook.find(id)
     end
   end
 
   describe "list/0" do
     test "builds an operation" do
-      assert %ExEasyPost.Operation{ http_method: :get, path: "webhooks" }
-        = ExEasyPost.Webhook.list()
+      assert %ExEasyPost.Operation{http_method: :get, path: "webhooks"} =
+               ExEasyPost.Webhook.list()
     end
   end
 
@@ -39,8 +42,8 @@ defmodule ExEasyPost.WebhookTest do
     test "builds an operation" do
       id = "foo"
 
-      assert %ExEasyPost.Operation{ http_method: :put, path: "webhooks/foo" }
-        = ExEasyPost.Webhook.update(id)
+      assert %ExEasyPost.Operation{http_method: :put, path: "webhooks/foo"} =
+               ExEasyPost.Webhook.update(id)
     end
   end
 end

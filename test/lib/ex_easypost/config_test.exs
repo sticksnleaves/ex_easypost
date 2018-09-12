@@ -4,8 +4,8 @@ defmodule ExEasyPost.ConfigTest do
   test "provides default config" do
     assert(
       ExEasyPost.Config.new()
-      |> Map.keys
-      |> Enum.count > 0
+      |> Map.keys()
+      |> Enum.count() > 0
     )
   end
 
@@ -16,7 +16,7 @@ defmodule ExEasyPost.ConfigTest do
     System.put_env(key, value)
 
     assert(
-      ExEasyPost.Config.new(api_key: { :system, key })
+      ExEasyPost.Config.new(api_key: {:system, key})
       |> Map.get(:api_key) == value
     )
   end
