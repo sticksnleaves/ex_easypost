@@ -15,7 +15,7 @@ cache:
     - _build
     - deps
 before_script:
-  - mix help
+  - mix deps.compile
   - travis_wait mix dialyzer --plt
 script:
   - mix coveralls.travis
