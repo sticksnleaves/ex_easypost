@@ -10,6 +10,10 @@ otp_release:
   - 19.3
   - 20.3
   - 21.0
+cache:
+  directories:
+    - _build
+    - deps
 matrix:
   exclude:
     - elixir: 1.4.5
