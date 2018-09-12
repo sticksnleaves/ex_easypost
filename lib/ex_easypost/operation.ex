@@ -26,9 +26,14 @@ defmodule ExEasyPost.Operation do
     path: nil
   ]
 
-  @type t :: %__MODULE__{}
+  @type t :: %__MODULE__{
+    headers: list,
+    http_method: atom,
+    params: map,
+    path: String.t
+  }
 
-  @spec perform(t, map) :: map
+  @spec perform(t, map) :: { :ok, map } | { :error, map }
   def perform(operation, config) do
     request(operation, config) |> parse(config)
   end
