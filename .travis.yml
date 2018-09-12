@@ -20,7 +20,6 @@ before_script:
 script:
   - mix coveralls.travis
   - mix dialyzer
-  - mix format --check-formatted
 matrix:
   exclude:
     - elixir: 1.4.5
