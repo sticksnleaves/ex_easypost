@@ -5,7 +5,7 @@ defmodule EasyPost.MixProject do
     [
       app: :ex_easypost,
       version: "3.0.0",
-      elixir: "~> 1.10",
+      elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
