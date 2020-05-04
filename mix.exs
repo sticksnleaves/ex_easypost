@@ -19,8 +19,16 @@ defmodule EasyPost.MixProject do
 
   defp deps do
     [
+      { :hackney, "~> 1.15", optional: true },
+
+      { :jason, "~> 1.2", optional: true },
+
+      #
+      # dev
+      #
+
       { :dialyxir, "~> 1.0", only: :dev, runtime: false },
-      
+
       { :ex_doc, ">= 0.0.0", only: :dev, runtime: false }
     ]
   end
