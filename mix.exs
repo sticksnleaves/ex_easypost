@@ -7,7 +7,8 @@ defmodule EasyPost.MixProject do
       version: "3.0.0",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      dialyzer: dialyzer()
     ]
   end
 
@@ -30,6 +31,12 @@ defmodule EasyPost.MixProject do
       { :dialyxir, "~> 1.0", only: :dev, runtime: false },
 
       { :ex_doc, ">= 0.0.0", only: :dev, runtime: false }
+    ]
+  end
+
+  defp dialyzer do
+    [
+      plt_core_path: "_build/#{Mix.env()}"
     ]
   end
 end
