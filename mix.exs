@@ -8,7 +8,8 @@ defmodule EasyPost.MixProject do
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      dialyzer: dialyzer()
+      dialyzer: dialyzer(),
+      package: package()
     ]
   end
 
@@ -38,6 +39,17 @@ defmodule EasyPost.MixProject do
     [
       plt_add_apps: [:hackney],
       plt_core_path: "_build/#{Mix.env()}"
+    ]
+  end
+
+  defp package do
+    [
+      description: "Elixir client for the EasyPost API",
+      maintainers: ["Anthony Smith"],
+      licenses: ["MIT"],
+      links: %{
+        GitHub: "https://github.com/sticksnleaves/ex_easypost"
+      }
     ]
   end
 end
