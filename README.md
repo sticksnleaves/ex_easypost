@@ -1,90 +1,61 @@
-# ExEasyPost
+# EasyPost for Elixir
 
-[![Build Status](https://travis-ci.org/sticksnleaves/ex_easypost.svg?branch=master)](https://travis-ci.org/sticksnleaves/ex_easypost)
-[![HexDocs](https://img.shields.io/badge/hexdocs-release-blue.svg)](https://hexdocs.pm/ex_easypost/)
+## Installation
 
-ExEasyPost is an Elixir client library for the EasyPost API.
-
-## Features
-
-1. Support for all EasyPost resources
-2. Minimal configuration. Choose your favorite HTTP client and JSON codec.
-3. Support for per-request configuration
-
-## Getting Started
-
-ExEasyPost allows you to choose which HTTP client and JSON codec you would like
-to use. ExEasyPost supports `:hackney` and `:httpoison` (HTTP clients) and
-`:poison` and `:jason` (JSON codecs) out of the box.
+`ex_easypost` is publbished on [Hex](https://hex.pm/packages/ex_easypost). Add
+it to your list of dependencies in `mix.exs`:
 
 ```elixir
 defp deps do
   [
-    {:ex_easypost, "~> 2.0"},
-    {:hackney, "~> 1.12"},
-    {:poison, "~> 3.1"}
+    { :ex_easypost, "~> 3.0" }
   ]
 end
 ```
 
+`ex_easypost` requires you to provide an HTTP client and a JSON codec. `hackney`
+and `jason` are used by default. If you wish to use these defaults you will need
+add `hackney` and `jason` as dependencies as well.
+
 ## Usage
 
-```elixir
-ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9c")
-|> ExEasyPost.request()
-```
+You can send a request to the EasyPost API by building an `EasyPost.Operation`
+struct and passing it as the first argument to `EasyPost.request/2` and passing
+a configuration map as the second argument.
 
-ExEasyPost will return `{:ok, response}` on success and `{:error, reason}` on
-failure.
-
-### Configuration
-
-ExEasyPost allows you to provide configuration as part of your application
-config or on a per-request basis.
-
-**Application configuration**
+### Example
 
 ```elixir
-config :ex_easypost,
-  api_key: "xxx"
+iex> params
+...> EasyPost.Shipment.create()
+...> EasyPost.request(%{ api_key: "xxx" })
+{ :ok, %EasyPost.Response{} }
 ```
 
-**Per-request configuration**
+An `EasyPost.Operation` struct can be built using either a resource module
+(e.g. `EasyPost.Shipment`) or by building the struct manually.
+`EasyPost.Operation` contains fields `:method`, `:params` and `:path`.
 
-```elixir
-config = %{api_key: "xxx"}
+* `:method` - an HTTP method and can be one of `:delete`, `:get`, `:post` or
+  `:put`
+* `:params` - data to be sent as the body of the request
+* `:path` - the path to send the request to. Must begin with a forward slash.
 
-ExEasyPost.Address.find("adr_a6fd5dd822c94bdfa1e3f2d28a4dbf9c")
-|> ExEasyPost.request(config)
-```
+## Configuration
 
-**Configuration options**
-
-- `:api_key` - your EasyPost API key
-- `:host` - host to make requests to (default: `api.easypost.com`)
-- `:http_client` - HTTP client used to make requests (default: `ExEasyPost.Client.Hackney`)
-- `:http_opts` - configuration options passed to the api client
-- `:json_codec` - codec used to encode and decode JSON (default: `Poison`)
-- `:path` - URI path to make requests to (default: `v2`)
-- `:port` - HTTP port to make requests to
-- `:protocol` - HTTP protocol to use when making requests (default: `https`)
-
-## Supported Resources
-
-- [x] [Address](https://hexdocs.pm/ex_easypost/ExEasyPost.Address.html)
-- [x] [Parcel](https://hexdocs.pm/ex_easypost/ExEasyPost.Parcel.html)
-- [x] [Insurance](https://hexdocs.pm/ex_easypost/ExEasyPost.Insurance.html)
-- [x] [Shipment](https://hexdocs.pm/ex_easypost/ExEasyPost.Shipment.html)
-- [x] [Tracker](https://hexdocs.pm/ex_easypost/ExEasyPost.Tracker.html)
-- [x] [Batch](https://hexdocs.pm/ex_easypost/ExEasyPost.Batch.html)
-- [x] [CustomsInfo](https://hexdocs.pm/ex_easypost/ExEasyPost.CustomsInfo.html)
-- [x] [CustomsItem](https://hexdocs.pm/ex_easypost/ExEasyPost.CustomsItem.html)
-- [x] [Order](https://hexdocs.pm/ex_easypost/ExEasyPost.Order.html)
-- [x] [Pickup](https://hexdocs.pm/ex_easypost/ExEasyPost.Pickup.html)
-- [x] [Report](https://hexdocs.pm/ex_easypost/ExEasyPost.Report.html)
-- [x] [ScanForm](https://hexdocs.pm/ex_easypost/ExEasyPost.ScanForm.html)
-- [x] [Webhook](https://hexdocs.pm/ex_easypost/ExEasyPost.Webhook.html)
-- [x] [API Key](https://hexdocs.pm/ex_easypost/ExEasyPost.APIKey.html)
-- [x] [User](https://hexdocs.pm/ex_easypost/ExEasyPost.User.html)
-- [x] [CarrierType](https://hexdocs.pm/ex_easypost/ExEasyPost.CarrierType.html)
-- [x] [CarrierAccount](https://hexdocs.pm/ex_easypost/ExEasyPost.CarrierAccount.html)
+* `:api_key` - API key used when making authenticated requests
+* `:host` - HTTP host to make requests to. Defaults to `api.easypost.com`.
+* `:http_client` -  the HTTP client used for making requests. Defaults to
+  `EasyPost.HTTP.Hackney`.
+* `:http_client_opts` - additional options passed to `:http_client`. Defaults to
+  `[]`.
+* `:json_codec` - codec for encoding and decoding JSON payloads. Defaults to
+  `Jason`.
+* `:path` - path to prefix on each request. Defaults to `/v2`.
+* `:port` - the HTTP port used when making a request
+* `:protocol` - the HTTP protocol used when making a request. Defaults to
+  `https`.
+* `:retry` - whether to automatically retry failed API calls. May be `true` or
+  `false`. Defaults to `false`.  
+* `:retry_opts` - options used when performing retries. Defaults to `[]`.
+  * `:max_attempts` - the maximum number of retry attempts. Defaults to `3`.
