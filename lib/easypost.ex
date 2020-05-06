@@ -13,7 +13,7 @@ defmodule EasyPost do
   @doc """
   Send an HTTP request to the EasyPost API.
   """
-  @spec request(EasyPost.Operation.t(), EasyPost.Config.t()) :: response_t
+  @spec request(EasyPost.Operation.t(), map) :: response_t
   def request(operation, config) do
     Request.send(operation, Config.new(config))
   end
