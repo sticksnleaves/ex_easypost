@@ -8,7 +8,7 @@ jobs:
       matrix:
         elixir: ['1.8', '1.9', '1.10']
 
-        otp: ['22.2']
+        otp: ['22.2', '23.0']
 
         os: [ubuntu-latest]
 
@@ -44,7 +44,7 @@ jobs:
       matrix:
         elixir: ['1.8', '1.9', '1.10']
 
-        otp: ['22.2']
+        otp: ['22.2', '23.0']
 
         os: [ubuntu-latest]
 
