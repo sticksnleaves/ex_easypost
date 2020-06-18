@@ -27,8 +27,8 @@ a configuration map as the second argument.
 
 ```elixir
 iex> params
-...> EasyPost.Shipment.create()
-...> EasyPost.request(%{ api_key: "xxx" })
+...> |> EasyPost.Shipment.create()
+...> |> EasyPost.request(%{ api_key: "xxx" })
 { :ok, %EasyPost.Response{} }
 ```
 
