@@ -36,7 +36,10 @@ defmodule EasyPost.Request do
     request = Map.put(request, :method, method)
     request = Map.put(request, :url, url)
 
-    dispatch(request, config)
+    request
+    |> dispatch(config)
+    |> retry(config)
+    |> finish(config)
   end
 
   defp dispatch(request, config) do
@@ -48,8 +51,6 @@ defmodule EasyPost.Request do
     request = Map.put(request, :result, result)
 
     request
-    |> retry(config)
-    |> finish(config)
   end
 
   defp retry(request, config) do
