@@ -19,7 +19,7 @@ defmodule EasyPost.Shipment do
     %EasyPost.Operation{
       method: :get,
       params: params,
-      path: "/shipments/#{id}"
+      path: "/shipments/#{id}/label"
     }
   end
 
