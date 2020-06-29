@@ -10,8 +10,8 @@ defmodule EasyPost.Helpers.URL do
     |> URI.to_string()
   end
 
-  defp put_query(uri, %{ method: :get } = operation) do
-    Map.put(uri, :query, URI.encode_query(operation.params))
+  defp put_query(uri, %{method: :get, params: params}) when not is_nil(params) do
+    Map.put(uri, :query, URI.encode_query(params))
   end
 
   defp put_query(uri, _operation) do
