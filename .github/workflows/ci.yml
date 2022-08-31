@@ -6,13 +6,11 @@ jobs:
   dialyzer:
     strategy:
       matrix:
-        elixir: ['1.8', '1.9', '1.10']
+        elixir: ['1.11', '1.12', '1.13']
 
-        otp: ['22.2', '23.0']
+        otp: ['23.x', '24.x', '25.x']
 
-        os: [ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -42,14 +40,11 @@ jobs:
   test:
     strategy:
       matrix:
-        elixir: ['1.8', '1.9', '1.10']
+        elixir: ['1.11', '1.12', '1.13']
 
-        otp: ['22.2', '23.0']
+        otp: ['23.x', '24.x', '25.x']
 
-        os: [ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
-
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
