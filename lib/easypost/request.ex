@@ -22,8 +22,11 @@ defmodule EasyPost.Request do
   def send(operation, config) do
     body = Helpers.Body.encode!(operation, config)
 
+    api_key = "#{config.api_key}:"
+    api_key = Base.encode64(api_key)
+
     headers = []
-    headers = headers ++ [{ "authorization", "Bearer #{config.api_key}" }]
+    headers = headers ++ [{ "authorization", "Basic #{api_key}" }]
     headers = headers ++ [{ "content-type", "application/json" }]
 
     method = operation.method
