@@ -5,7 +5,7 @@ defmodule EasyPost.MixProject do
     [
       app: :ex_easypost,
       version: "3.0.4",
-      elixir: "~> 1.8",
+      elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       dialyzer: dialyzer(),
@@ -15,7 +15,7 @@ defmodule EasyPost.MixProject do
 
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:crypto, :logger]
     ]
   end
 
