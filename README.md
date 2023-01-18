@@ -2,7 +2,7 @@
 
 ## Installation
 
-`ex_easypost` is publbished on [Hex](https://hex.pm/packages/ex_easypost). Add
+`ex_easypost` is published on [Hex](https://hex.pm/packages/ex_easypost). Add
 it to your list of dependencies in `mix.exs`:
 
 ```elixir
